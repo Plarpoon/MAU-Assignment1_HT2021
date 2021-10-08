@@ -1,4 +1,4 @@
-﻿namespace MAU_Assignment1_HT2021;
+﻿namespace MAU_Assignment1_HT2021_Part1;
 
 public class Album
 {
