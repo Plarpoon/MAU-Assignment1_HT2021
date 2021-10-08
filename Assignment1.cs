@@ -8,6 +8,7 @@ public static class Assignment1 // Assignment 1 (HT2021)
     public static void Main()
     {
         InitConsole();
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
 
         var pet = new Pet();
         pet.Start();

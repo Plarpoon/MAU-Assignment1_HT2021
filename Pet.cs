@@ -18,7 +18,7 @@ public class Pet
 
     internal void Start()
     {
-        Console.WriteLine("What is the name of your pet?");
+        Console.WriteLine("Greeting from 'Pet' class!\nWhat is the name of your pet?");
         _name = Console.ReadLine();
         Console.WriteLine("\nThe name you selected is " + _name);
 
@@ -31,7 +31,7 @@ public class Pet
             _inputAge = float.Parse(Console.ReadLine() ?? string.Empty);    //  Parsing of a string into a float to accept any numeric input.
             if (_inputAge != 0 && _inputAge < 0)
                 _inputAge *= -1;    //  If the number is negative then make it positive.
-            _age = Convert.ToInt32(_inputAge);
+            _age = (int)Math.Round((decimal)_inputAge);
         }
         catch (Exception e) // this is because testers enjoyed typing letters and symbols or numbers bigger than an INT32 on purpose.
         {
