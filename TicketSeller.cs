@@ -1,14 +1,14 @@
-﻿namespace MAU_Assignment1_HT2021_Part1;
+﻿namespace MAU_Assignment1_HT2021;
 
 public class TicketSeller
 {
-    private string? _name;
-    private const double Price = 100;   // 'P' is capital since it's a constant value
-    private int _numOfAdults;
-    private int _numOfChildren;
+    private const double Price = 100; // 'P' is capital since it's a constant value
     private double _amountToPay;
 
     private float? _inputNumber;
+    private string? _name;
+    private int _numOfAdults;
+    private int _numOfChildren;
     private double _totalAdultPrice;
     private double _totalChildrenPrice;
 
@@ -20,23 +20,23 @@ public class TicketSeller
         _name = Console.ReadLine();
         Console.WriteLine("\nThe name you have written is: " + _name);
 
-        try    // input sanitization again, please read 'Pet'.
+        try // input sanitization again, please read 'Pet'.
         {
             Console.WriteLine("\nWrite the number of adults:");
             _inputNumber = float.Parse(Console.ReadLine() ?? string.Empty);
             if (_inputNumber < 0)
                 _inputNumber *= -1;
-            _numOfAdults = (int)Math.Round((decimal)_inputNumber);
+            _numOfAdults = (int) Math.Round((decimal) _inputNumber);
             Console.WriteLine("The written number of adults is:\n" + _numOfAdults);
 
             Console.WriteLine("\nWrite the number of children:");
             _inputNumber = float.Parse(Console.ReadLine() ?? string.Empty);
             if (_inputNumber < 0)
                 _inputNumber *= -1;
-            _numOfChildren = (int)Math.Round((decimal) _inputNumber);
+            _numOfChildren = (int) Math.Round((decimal) _inputNumber);
             Console.WriteLine("The written number of children is:\n" + _numOfChildren);
         }
-        catch (Exception e) 
+        catch (Exception e)
         {
             Console.WriteLine("\nPlease enter a valid number of people.");
             Console.WriteLine("\nERROR: " + e);
@@ -50,6 +50,8 @@ public class TicketSeller
         _totalAdultPrice = Price * _numOfAdults;
         _totalChildrenPrice = _numOfChildren * (0.25 * Price);
         _amountToPay = _totalAdultPrice + _totalChildrenPrice;
-        Console.WriteLine("\n+++ Your receipt +++\n+++ total amount to pay = {0}€\n+++ DETAILED PAYMENT\n+++ Paid amount by adults: {1}€\n+++ Paid amount by kids: {2}€\n\n+++ Thank you {3} for your purchase!\n\nHAVE A NICE DAY!\n", _amountToPay, _totalAdultPrice, _totalChildrenPrice, _name);
+        Console.WriteLine(
+            "\n+++ Your receipt +++\n+++ total amount to pay = {0}€\n+++ DETAILED PAYMENT\n+++ Paid amount by adults: {1}€\n+++ Paid amount by kids: {2}€\n\n+++ Thank you {3} for your purchase!\n\nHAVE A NICE DAY!\n",
+            _amountToPay, _totalAdultPrice, _totalChildrenPrice, _name);
     }
 }
